@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Excel to SQL converter</title>
+</head>
+<body>
+    <form action="/insert" method="POST">
+
+        {% for excelColumnName in excelColumnNames %}
+            {{excelColumnName}}
+            <select name={{excelColumnName}}>
+                <option value="None">None</option>
+                {% for SQLColumnName in SQLColumnNames %}
+                <option value={{SQLColumnName}}>{{SQLColumnName}}</option>
+                {% endfor %}
+            </select>
+            
+            <br>
+        {% endfor %}
+    
+    <button type="submit">Insert</button>
+    </form>
+</body>
+</html>
